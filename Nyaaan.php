@@ -161,7 +161,7 @@
 				$user_name = $_POST["user_name"];
 				$sql  = "INSERT INTO bbs (content, user_name, updated_at) VALUES (:content, :user_name, NOW());";
 				$stmt = $pdo->prepare($sql);
-				$stmt -> bindValue(":message", $message, PDO::PARAM_STR);
+				$stmt -> bindValue(":content", $content, PDO::PARAM_STR);
 				$stmt -> bindValue(":user_name", $user_name, PDO::PARAM_STR);
 				$stmt -> execute();
 			} ?>
@@ -173,7 +173,7 @@
     </div>
      <div class="form-group"><br><br>
 	<label for="control-labele">メッセージ</label>
-	<textarea name="message" id="message" rows="3" class="form-control"></textarea><br>
+	<textarea name="content" id="content" rows="3" class="form-control"></textarea><br>
 	<button type="submit">送信する</button>
      </div>
     </form>
